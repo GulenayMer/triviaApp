@@ -61,3 +61,12 @@ button:hover{
 	background-color: #2b2b2b;
 	color: #fff;
 }
+
+
+.showItems {
+	opacity: 1;
+}
+
+.hideItems {
+	opacity: 0;
+}
