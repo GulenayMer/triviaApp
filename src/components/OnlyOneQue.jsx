@@ -8,6 +8,7 @@ const [correctAns, setCorrectAns] = useState(false);
 const [score, setScore] = useState(0);
 const [checkScore, setCheckScore] = useState(false);
 const [retry, setRetry] = useState(false);
+const [countIndex, setCountIndex] = useState(0);
 
 const fetchData = async () => {
 	try{
@@ -55,26 +56,44 @@ const showResult = () => {
 	setRetry(!retry);
 	if (retry){
 		fetchData();
+		setScore(0);
+		getNextQ();
 	}
 }
 
+const getNextQ = () => {
+	setCountIndex(prevIndex => (prevIndex + 1) % quest.length);
 
+}
+
+
+if (!quest) {
+    return <p>Loading...</p>;
+}
+
+if (countIndex >= quest.length)
+{
+	setCountIndex(0);
+}
+
+const currentItem = quest[countIndex];
+//console.log(quest);
+//console.log(currentItem)
+console.log(countIndex);
 return (
 	<div className="questionsContainer">
-	{ quest ? (
 		<ul>
-		{quest.map((item) => (
-				<div className="questionList" key={item.id}>
-				<li>{item.question}</li>
-				{item.answers.map((i) => (
-					<button key={i} onClick={() => getUserAnswer(i, item.id)}>{i}</button>
+			{countIndex < quest.length - 1 ? (<div className="questionList" key={currentItem.id}>
+				<li>{currentItem.question}</li>
+				{currentItem.answers.map((i) => (
+					<button key={i} onClick={() => getUserAnswer(i, currentItem.id)}>{i}</button>
 				))}
-				</div>
-			))}
+				</div>) : ("")}
+		
 		</ul>
-		) : (<p>Loading...</p>)
-	}
-	<button onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
+		<button onClick={getNextQ}>Next</button>
+
+		<button onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
 		{checkScore && score && retry ? (
 			<p>Your score is  {score}</p>
 		) : ""
