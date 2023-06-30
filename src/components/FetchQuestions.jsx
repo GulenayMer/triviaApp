@@ -74,9 +74,9 @@ return (
 		</ul>
 		) : (<p>Loading...</p>)
 	}
-	<button onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
+	<button className="btn" onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
 		{checkScore && score && retry ? (
-			<p>Your score is  {score}</p>
+			<p>Your score is  <span>{score}</span></p>
 		) : ""
 		}
 	</div>

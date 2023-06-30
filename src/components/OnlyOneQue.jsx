@@ -79,7 +79,7 @@ if (countIndex >= quest.length)
 const currentItem = quest[countIndex];
 //console.log(quest);
 //console.log(currentItem)
-console.log(countIndex);
+//console.log(countIndex);
 return (
 	<div className="questionsContainer">
 		<ul>
@@ -91,11 +91,11 @@ return (
 				</div>) : ("")}
 		
 		</ul>
-		<button onClick={getNextQ}>Next</button>
+		<button className="btn" onClick={getNextQ}>Next</button>
 
-		<button onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
+		<button className="btn" onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
 		{checkScore && score && retry ? (
-			<p>Your score is  {score}</p>
+			<p>Your score is  <span>{score}</span></p>
 		) : ""
 		}
 	</div>

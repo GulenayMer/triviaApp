@@ -10,15 +10,6 @@ const [score, setScore] = useState(0);
 const [checkScore, setCheckScore] = useState(false);
 const [retry, setRetry] = useState(false);
 
-const fetchData = async () => {
-	try{
-		const response = await fetch("https://wd40-trivia.onrender.com/api/questions");
-		const jsonData = await response.json();
-		setQuestions(jsonData);
-	}catch(error){
-		console.log("Error fetching data: ", error);
-	}
-}
 
 useEffect(() => {
 
@@ -54,7 +45,7 @@ const showResult = () => {
 	setCheckScore(!checkScore);
 	setRetry(!retry);
 	if (retry){
-		fetchData();
+		setQuestions(questions);
 	}
 }
 
@@ -70,9 +61,9 @@ return (
 				</div>
 			))}
 		</ul>
-		<button onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
+		<button className="btn" onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
 		{checkScore && score && retry ? (
-			<p>Your score is  {score}</p>
+			<p>Your score is <span>{score}</span> </p>
 		) : ""
 		}
 		
