@@ -57,6 +57,7 @@ const showResult = () => {
 	if (retry){
 		fetchData();
 		getNextQ();
+		setScore(0);
 	}
 }
 
