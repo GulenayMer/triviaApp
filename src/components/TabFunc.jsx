@@ -4,6 +4,12 @@ import FetchQuestions from './FetchQuestions'
 import OnlyOneQue from './OnlyOneQue'
 import {useState} from 'react'
 
+const TabsStyles = {
+	color: '#000',
+	fontSize: "1rem",
+
+  };
+
 const TabFunc = () => {
 
 	const [value, setValue] = useState(0);
@@ -18,11 +24,11 @@ return (
 	<Tabs
 		value={value}
 		onChange={handleChange}
-		textColor="secondary"
-		indicatorColor="secondary">
-		<Tab value={0}  label="Use JS Data" />
-		<Tab value={1}  label="Fetch Questions" />
-		<Tab value={2}  label="Show One Question" />
+		indicatorColor="secondary"
+		>
+		<Tab value={0}  label="Use JS Data" style={{...TabsStyles }} />
+		<Tab value={1}  label="Fetch Questions" style={{...TabsStyles }}/>
+		<Tab value={2}  label="Show One Question" style={{...TabsStyles }}/>
     </Tabs>
 
 	{value === 0 && (

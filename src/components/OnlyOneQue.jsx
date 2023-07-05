@@ -82,16 +82,22 @@ const currentItem = quest[countIndex];
 return (
 	<div className="questionsContainer">
 		<ul>
-			{countIndex < quest.length - 1 ? (<div className="questionList" key={currentItem.id}>
+			{countIndex < quest.length - 1 ? (
+			<div className="questionList" key={currentItem.id}>
 			<span className="number">{`${countIndex + 1}`}</span>
 				<li>{currentItem.question}</li>
+				<div className="btns">
 				{currentItem.answers.map((i) => (
 					<button key={i} onClick={() => getUserAnswer(i, currentItem.id)}>{i}</button>
 				))}
+				</div>
 				</div>) : ("")}
 		
 		</ul>
-		<button className="btn" onClick={getNextQ}>Next</button>
+		{!retry ? (
+				<button className="btn" onClick={getNextQ}>Next</button>
+		) : ""}
+	
 
 		<button className="btn" onClick={showResult}>{checkScore ? "Retry": "Show Score"} </button>
 		{checkScore && score && retry ? (

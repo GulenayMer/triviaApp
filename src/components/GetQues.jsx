@@ -55,9 +55,11 @@ return (
 			{quest.map((item) => (
 				<div className="questionList" key={item.id}>
 				<li>{item.question}</li>
+				<div className="btns">
 				{item.answers.map((i) => (
 					<button key={i} onClick={() => getUserAnswer(i, item.id)}>{i}</button>
 				))}
+				</div>
 				</div>
 			))}
 		</ul>

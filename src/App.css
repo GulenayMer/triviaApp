@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap');
 
 *{
 	box-sizing: border-box;
@@ -5,17 +6,22 @@
 
 body{
 	margin: 0;
-	padding: 0;
-	background-color: #e3caca;
+	/* background-color: #e3caca; */
+	font-family: 'Lato', sans-serif;
+	background-color: #b9b9d1 ;
+	/* */
 }
 
 
 .questionsContainer{
+
+	font-size: 1.6rem;
+	min-height: 100vh;
+	padding: 0 100px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
-	font-size: 1.6rem;
 }
 
 
@@ -26,21 +32,22 @@ body{
 }
 
 .questionList{
-	margin: 1rem;
+	margin: 1rem 0;
 	border-radius: 10px;
-	padding: 3rem 0.4rem;
-	text-align: center;
-	width: 100%;
-	background-color: #a76f6fc5;
-	box-shadow: -10px 0px 13px -7px #616161, 10px 0px 13px -7px #383838, 5px 5px 15px 5px rgba(92, 92, 92, 0);
-	color: #edebeb;
+	padding: 3rem 0.7rem;
+	color: #333;
 	position: relative;
+	background-color: #e0e0e9;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .questionList li{
 	padding: 1rem;
 	font-weight: 700;
-	color: rgba(251, 246, 246, 0.867);
 }
 
 .number
@@ -52,7 +59,7 @@ body{
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	background: #dedddd;
+	background: #fff;
 	color: #4d4f94;
 	display: flex;
 	align-items: center;
@@ -60,23 +67,28 @@ body{
 	padding: 7px 10px;
 }
 
+.questionList .btns{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .questionList button{
 	margin: 0.6rem;
-/* 	padding: 0.7rem 2rem; */
-	background-color: #333;;
-	color: #fff;
+	background-color:  #f59a7c;
+	color: #000;
 	border-radius: 10px;
 	border: none;
 	cursor: pointer;
 	font-size: 1rem;
 	transition: 0.2s;
-	width: 20%;
-	height: 10vh;
+	padding: 1rem 2rem;
+
 }
 
 .questionList button:hover{
-	background-color:  #EAB2A0;
-	color: #2b2a2a;
+	background-color: #333;
+	color: #fff;
 	transform: scale(1.1);
 	font-size: 1.1rem;
 }
@@ -84,9 +96,7 @@ body{
 .btn{
 	margin: 0.3rem;
 	padding: 0.7rem 2rem;
-	width: 20%;
-	background-color: #EAB2A0;
-	color: #000;
+	width: 30%;
 	border-radius: 10px;
 	border: none;
 	cursor: pointer;
@@ -97,13 +107,14 @@ body{
 }
 
 .btn:hover{
-	background-color: #2b2b2b;
-	color: #fff;
+
+	background-color: #EAB2A0;
+	color: #000;
 }
 
 p{
 	font-weight: 600;
-	color: #383838;
+	color: #000;
 }
 
 p span{
