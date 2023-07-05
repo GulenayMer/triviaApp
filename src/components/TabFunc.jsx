@@ -21,8 +21,8 @@ return (
 		textColor="secondary"
 		indicatorColor="secondary">
 		<Tab value={0}  label="Use JS Data" />
-		<Tab value={1}  label="Only One Question" />
-		<Tab value={2}  label="Only One Question" />
+		<Tab value={1}  label="Fetch Questions" />
+		<Tab value={2}  label="Show One Question" />
     </Tabs>
 
 	{value === 0 && (

@@ -56,7 +56,6 @@ const showResult = () => {
 	setRetry(!retry);
 	if (retry){
 		fetchData();
-		setScore(0);
 		getNextQ();
 	}
 }
@@ -84,6 +83,7 @@ return (
 	<div className="questionsContainer">
 		<ul>
 			{countIndex < quest.length - 1 ? (<div className="questionList" key={currentItem.id}>
+			<span className="number">{`${countIndex + 1}`}</span>
 				<li>{currentItem.question}</li>
 				{currentItem.answers.map((i) => (
 					<button key={i} onClick={() => getUserAnswer(i, currentItem.id)}>{i}</button>

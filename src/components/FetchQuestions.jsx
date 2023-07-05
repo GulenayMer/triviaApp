@@ -9,6 +9,7 @@ const [score, setScore] = useState(0);
 const [checkScore, setCheckScore] = useState(false);
 const [retry, setRetry] = useState(false);
 
+
 const fetchData = async () => {
 	try{
 		const response = await fetch("https://wd40-trivia.onrender.com/api/questions");
@@ -53,6 +54,7 @@ const getUserAnswer = (i, id) => {
 const showResult = () => {
 	setCheckScore(!checkScore);
 	setRetry(!retry);
+	//setScore(0);
 	if (retry){
 		fetchData();
 	}
@@ -65,6 +67,7 @@ return (
 		<ul>
 		{quest.map((item) => (
 				<div className="questionList" key={item.id}>
+			
 				<li>{item.question}</li>
 				{item.answers.map((i) => (
 					<button key={i} onClick={() => getUserAnswer(i, item.id)}>{i}</button>
